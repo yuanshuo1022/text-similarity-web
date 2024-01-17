@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
-const DynamicEchartsDashboard = dynamic(
-  () => import('@/components/ui/Dashboard'),
-  { ssr: false }
-);
+// const DynamicEchartsDashboard = dynamic(
+//   () => import('@/components/ui/Dashboard'),
+//   { ssr: false }
+// );
 
 const EchartsDashboard = () => {
   useEffect(() => {
- <DynamicEchartsDashboard/>
+//  <DynamicEchartsDashboard/>
     // 在浏览器环境中执行
     if (typeof window !== 'undefined') {
       // 获取容器

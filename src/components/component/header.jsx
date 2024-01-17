@@ -4,10 +4,10 @@ import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 export function NavBar() {
     return ((
       
-        <header className="flex flex-col md:flex-row justify-between items-center mb-6">
+        <header className="flex flex-col md:flex-row justify-between items-left mb-6">
         <h1
           className="text-4xl font-bold text-[#2d3748] border-b-4 border-[#2d3748] inline-block pb-2">
-          文本相似度分析
+           <AITextAnalysisLogo/>文本相似度
         </h1>
         <nav className="md:hidden flex items-center">
         <Sheet>
@@ -138,4 +138,29 @@ function MenuIcon(props) {
   }
   
  
+  function AITextAnalysisLogo(props) {
+    return (
+      <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="40"
+      height="40"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="10" fill="#61dafb"></circle>
+      <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fontSize="12" fill="#fff">
+        
+      </text>
+      <line id="arrow" x1="12" y1="10" x2="12" y2="7"></line>
+    </svg>
+  
+    );
+  }
+  
+  
+  
   
