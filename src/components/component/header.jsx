@@ -41,13 +41,13 @@ export function NavBar() {
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/statis">
                 模型分析
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
+              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/cleaning">
                 清洗文本
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
+              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/gapword">
                 分词
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
+              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/simple">
                 繁简转换
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
@@ -69,10 +69,19 @@ export function NavBar() {
             词语相似度查询
           </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="#">
-            生词页面
+            类比推理
           </Link>
-          <Link className="text-2xl font-bold text-[#2d3748]" href="#">
-            统计页
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/statis">
+            模型分析
+          </Link>
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/cleaning">
+            清洗文本
+          </Link>
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/gapword">
+            分词
+          </Link>
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/simple">
+            繁简转换
           </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="/swap">
             兑换
