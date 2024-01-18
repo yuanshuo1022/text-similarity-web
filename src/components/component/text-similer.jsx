@@ -41,8 +41,8 @@ export function TextSimiler() {
      <NavBar />
      <div className="flex flex-col">
         <select onChange={(e) => setTextVector(e.target.value)} className="mb-6 font-bold bg-gradient-to-r from-[#f3f4f6] to-[#a1c9f1] w-32 h-8" >
-          <option className="mb-4 w-2 "  value={1}>平均向量</option>
-          <option className="mb-4  "  value={2}>TF-IDF向量</option>
+          <option className="mb-4 w-2 "  value={1}>平均向量(适合句子)</option>
+          <option className="mb-4  "  value={2}>TF-IDF向量(适合文章)</option>
         </select>
     </div>
       <div className="flex flex-col md:grid md:grid-cols-2 gap-4 flex-grow">
