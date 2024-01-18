@@ -4,10 +4,10 @@ import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 export function NavBar() {
     return ((
       
-        <header className="flex flex-col md:flex-row justify-between items-center mb-6">
+        <header className="flex flex-col md:flex-row justify-between items-left mb-6">
         <h1
           className="text-4xl font-bold text-[#2d3748] border-b-4 border-[#2d3748] inline-block pb-2">
-          文本相似度分析
+           <AITextAnalysisLogo/>文本相似度
         </h1>
         <nav className="md:hidden flex items-center">
         <Sheet>
@@ -41,13 +41,13 @@ export function NavBar() {
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/statis">
                 模型分析
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
+              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/cleaning">
                 清洗文本
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
+              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/gapword">
                 分词
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
+              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/simple">
                 繁简转换
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
@@ -69,10 +69,19 @@ export function NavBar() {
             词语相似度查询
           </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="#">
-            生词页面
+            类比推理
           </Link>
-          <Link className="text-2xl font-bold text-[#2d3748]" href="#">
-            统计页
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/statis">
+            模型分析
+          </Link>
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/cleaning">
+            清洗文本
+          </Link>
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/gapword">
+            分词
+          </Link>
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/simple">
+            繁简转换
           </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="/swap">
             兑换
@@ -129,4 +138,29 @@ function MenuIcon(props) {
   }
   
  
+  function AITextAnalysisLogo(props) {
+    return (
+      <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="40"
+      height="40"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="10" fill="#61dafb"></circle>
+      <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fontSize="12" fill="#fff">
+        
+      </text>
+      <line id="arrow" x1="12" y1="10" x2="12" y2="7"></line>
+    </svg>
+  
+    );
+  }
+  
+  
+  
   
