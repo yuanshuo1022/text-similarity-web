@@ -3,48 +3,41 @@
  * @see https://v0.dev/t/BqYXyOlM51V
  */
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { CardHeader, CardContent, Card } from "@/components/ui/card"
 import EchartsDashboard from "@/components/ui/Dashboard"
 import {NavBar} from "./header"
-import React, { useEffect, useState } from 'react';
-import {analyzeSimilarity} from"@/app/api/api"
-export function TextSimiler() {
+import React, { useState } from 'react';
+import axios from 'axios';
+export function WordVectorAnalysis() {
   const [text1, setText1] = useState('');
   const [text2, setText2] = useState('');
   const [similarityResult, setSimilarityResult] = useState(0);
-  const [cosine_sim, setCosine_sim] = useState(0);
-  const [correlation_sim, setCorrelation_sim] = useState(0);
-  const [textVector,setTextVector]=useState(1)
-  const handleAnalyze = async () => {
-    try {
-      console.log("Textvector",textVector)
-      const result = await analyzeSimilarity(textVector,text1, text2);
-      setCosine_sim(Number(result.cosine_sim*100).toFixed(4))
-      setCorrelation_sim(Number(result.correlation_sim*100).toFixed(4))
-      const roundedResult = Number((result.cosine_sim*100+result.correlation_sim*100)/2).toFixed(2);
-      setSimilarityResult(roundedResult);
-    } catch (error) {
-      // 在这里处理请求失败的情况
-      console.error('分析失败：', error);
-    }
+
+  const handleAnalyze = () => {
+    console.log("text1:"+text1)
+    console.log("text2: "+text2)
+    setSimilarityResult(78)
+    // 发送POST请求到后端
+//     axios.post('http://localhost:5000/api/analyze-similarity', {
+//       text1: text1,
+//       text2: text2
+//     })
+//     .then(response => {
+//       const result = response.data.result;
+//       setSimilarityResult(result);
+//     })
+//     .catch(error => {
+//       console.error('请求失败：', error);
+//     });
+
   };
-    // useEffect(()=>{
-    //   const fetchTextVector= async() =>{
-    //       console.log("setTextVector: "+textVector)
-    //   }
-    //   fetchTextVector()
-    // },[textVector])
+
   return (
     (<div
       key="1"
       className="flex flex-col min-h-screen p-4 md:p-8 bg-gradient-to-r from-[#f3f4f6] to-[#a1c9f1] text-[#2d3748] font-sans">
      <NavBar />
-     <div className="flex flex-col">
-        <select onChange={(e) => setTextVector(e.target.value)} className="mb-6 font-bold bg-gradient-to-r from-[#f3f4f6] to-[#a1c9f1] w-32 h-8" >
-          <option className="mb-4 w-2 "  value={1}>平均向量</option>
-          <option className="mb-4  "  value={2}>TF-IDF向量</option>
-        </select>
-    </div>
       <div className="flex flex-col md:grid md:grid-cols-2 gap-4 flex-grow">
         <Card
           className="p-4 rounded-lg shadow-lg bg-gradient-to-r from-[#edf2f7] to-[#a1c9f1] border border-gray-200 border-[#2d3748] dark:border-gray-800">
@@ -93,23 +86,11 @@ export function TextSimiler() {
             className="text-2xl font-bold text-[#2d3748] border-b-2 border-[#2d3748] inline-block pb-1">分析结果</h2>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-2 py-6">
-            <CardHeader className="flex w-full items-center py-2 text-lg font-semibold">
-                余弦相似度：{cosine_sim}
-            </CardHeader>
-            <CardHeader className="flex w-full items-center py-2 text-lg font-semibold">
-                相关系数相似度：{correlation_sim}
-            </CardHeader>
-          </div>
+          <p aria-label="Analysis Result" className="text-lg">
+            文本相似度结果为：
+          </p>
+          <EchartsDashboard value={similarityResult}/>
         </CardContent>
-        <Card   className="p-4 rounded-lg shadow-lg bg-gradient-to-r from-[#edf2f7] to-[#a1c9f1] border border-gray-200 border-[#2d3748] dark:border-gray-800">
-        <CardHeader className="flex w-full items-left py-2 text-lg font-semibold">
-                综合相似度：
-            </CardHeader>
-            <CardContent>
-            <EchartsDashboard value={similarityResult}/>
-            </CardContent>
-            </Card>
       </Card>
     </div>)
   );

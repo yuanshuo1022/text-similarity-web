@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import {TextSimiler} from '../components/component/text-similer'
+import {WordVectorAnalysis} from '../components/component/statis'
 
 //统计页面
-export default function Home() {
+export default function WordVectorAnaly() {
   return (
     <div>
-      <TextSimiler />
+      <WordVectorAnalysis />
     </div>
   )
 }
