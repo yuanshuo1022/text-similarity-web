@@ -6,8 +6,9 @@ export function NavBar() {
       
         <header className="flex flex-col md:flex-row justify-between items-left mb-6">
         <h1
-          className="text-4xl font-bold text-[#2d3748] border-b-4 border-[#2d3748] inline-block pb-2">
-           <AITextAnalysisLogo/>文本相似度
+          className="text-4xl font-bold  pb-2"> 
+          {/* text-[#2d3748] border-b-4 border-[#2d3748] inline-block */}
+           <AITextAnalysisLogo/>
         </h1>
         <nav className="md:hidden flex items-center">
         <Sheet>
@@ -33,7 +34,7 @@ export function NavBar() {
                 首页
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="#">
-                词语相似度查询
+                词语相似
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="#">
                类比推理
@@ -66,7 +67,7 @@ export function NavBar() {
             首页
           </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="#">
-            词语相似度查询
+            词语相似
           </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="#">
             类比推理
@@ -88,7 +89,7 @@ export function NavBar() {
           </Link>
           <Button
             className="text-2xl font-bold text-[#f3f4f6] bg-[#2d3748] hover:bg-[#4a5568]">
-            连接Metamask钱包
+            连接钱包
           </Button>
         </nav>
       </header>)
@@ -121,8 +122,8 @@ function MenuIcon(props) {
       <svg
         {...props}
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width="12"
+        height="12"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -139,25 +140,57 @@ function MenuIcon(props) {
   
  
   function AITextAnalysisLogo(props) {
+    // return (
+    //   <svg xmlns="http://www.w3.org/2000/svg" width="140" height="60" viewBox="0 0 200 100">
+
+    //   {/* <!-- 圆形 --> */}
+    //   <circle cx="100" cy="50" r="30" stroke="black" stroke-width="2" fill="transparent"/>
+    
+    //   {/* <!-- 镜像的“词”字 --> */}
+    //   <text x="100" y="50" font-family="Arial" font-size="20" text-anchor="middle" dominant-baseline="central" transform="scale(-1,1) translate(-200, 0)" >词</text>
+    
+    //   {/* <!-- 缩小的箭头 --> */}
+    //   <line x1="90" y1="35" x2="110" y2="35" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+    
+    //   {/* <!-- 定义箭头末端样式 --> */}
+    //   <defs>
+    //     <marker id="arrowhead" markerWidth="5" markerHeight="3.5" refX="0" refY="1.75" orient="auto">
+    //       <polygon points="0 0, 6 1.75, 0 3.5" fill="black"/>
+    //     </marker>
+    //   </defs>
+    
+    // </svg>
+    
+    
+    // );
     return (
-      <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="40"
-      height="40"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" fill="#61dafb"></circle>
-      <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fontSize="12" fill="#fff">
-        
-      </text>
-      <line id="arrow" x1="12" y1="10" x2="12" y2="7"></line>
-    </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="120" height="50" viewBox="0 0 200 100">
   
+        {/* 渐变蓝色背景 */}
+        <rect x="0" y="0" width="200" height="100" fill="url(#gradient)" />
+  
+        {/* 圆形 */}
+        <circle cx="100" cy="50" r="30" stroke="black" stroke-width="2" fill="transparent"/>
+  
+        {/* 镜像的“词”字 */}
+        <text x="100" y="50" font-family="Arial" font-size="20" text-anchor="middle" dominant-baseline="central" transform="scale(-1,1) translate(-200, 0)">词</text>
+  
+        {/* 缩小的箭头 */}
+        <line x1="90" y1="35" x2="110" y2="35" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+  
+        {/* 定义箭头末端样式 */}
+        <defs>
+          <marker id="arrowhead" markerWidth="5" markerHeight="3.5" refX="0" refY="1.75" orient="auto">
+            <polygon points="0 0, 6 1.75, 0 3.5" fill="black"/>
+          </marker>
+  
+          {/* 定义线性渐变 */}
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style={{stopColor: "#a1c9f1", stopOpacity: 1}} />
+            <stop offset="100%" style={{stopColor: "#004CBF", stopOpacity: 1}} />
+          </linearGradient>
+        </defs>
+      </svg>
     );
   }
   
