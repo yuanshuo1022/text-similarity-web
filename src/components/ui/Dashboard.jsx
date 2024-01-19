@@ -39,9 +39,14 @@ const EchartsDashboard = ({ value }) => {
                   value: chartData,
                   name: '综合相似度'
                 }
-              ]
+              ],
+              // 设置刻度范围为 -100 到 100
+              min: -100,
+              max: 100
+              
             }
           ]
+    
         };
 
         // 设置选项

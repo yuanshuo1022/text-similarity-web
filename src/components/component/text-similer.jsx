@@ -39,8 +39,8 @@ export function TextSimiler() {
       key="1"
       className="flex flex-col min-h-screen p-4 md:p-8 bg-gradient-to-r from-[#f3f4f6] to-[#a1c9f1] text-[#2d3748] font-sans">
      <NavBar />
-     <div className="flex flex-col">
-        <select onChange={(e) => setTextVector(e.target.value)} className="mb-6 font-bold bg-gradient-to-r from-[#f3f4f6] to-[#a1c9f1] w-40 h-8" >
+     <div className="flex ">
+        <select onChange={(e) => setTextVector(e.target.value)} className="mb-6 font-bold bg-gradient-to-r from-[#f3f4f6] to-[#a1c9f1] w-42 h-8" >
           <option className="mb-4 " value={1} >选择文本向量算法</option>
           <option className="mb-4 "  value={1}>平均向量(适合句子)</option>
           <option className="mb-4 "  value={2}>TF-IDF向量(适合文章)</option>
@@ -105,7 +105,7 @@ export function TextSimiler() {
         </CardContent>
         <Card   className="p-4 rounded-lg shadow-lg bg-gradient-to-r from-[#edf2f7] to-[#a1c9f1] border border-gray-200 border-[#2d3748] dark:border-gray-800">
         <CardHeader className="flex w-full items-left py-2 text-lg font-semibold">
-                综合相似度：
+                综合相似度：{similarityResult}
             </CardHeader>
             <CardContent>
             <EchartsDashboard value={similarityResult}/>

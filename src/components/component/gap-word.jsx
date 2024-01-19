@@ -6,12 +6,32 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { CardHeader, CardContent, Card } from "@/components/ui/card"
 import {NavBar} from "./header"
+import {splitWord} from "@/app/api/api"
+import React, { useEffect, useState } from 'react';
 export function GapWord() {
+  const [splitedWordText,setsplitedWordText]=useState('') //分词后
+  const [splitWordText,setsplitWordText]=useState('')  //分词前
+  const [split_word_mode,setSplitWordMode]=useState(1)
+  const  splitWordTexting = async () => {
+    try {
+      const result = await splitWord(split_word_mode,splitWordText);
+      setsplitedWordText(result.split_text)
+    } catch (error) {
+      // 在这里处理请求失败的情况
+      console.error('分词失败：', error);
+    }
+  };
   return (
     (<div
       key="1"
       className="flex flex-col min-h-screen p-4 md:p-8 bg-gradient-to-r from-[#f3f4f6] to-[#a1c9f1] text-[#2d3748] font-sans">
      <NavBar />
+     <div className="flex ">
+        <select onChange={(e) => setSplitWordMode(e.target.value)} className="mb-6 font-bold bg-gradient-to-r from-[#f3f4f6] to-[#a1c9f1] w-42 h-8" >
+          <option className="mb-4 "   value={1} >结巴分词</option>
+          <option className="mb-4 "  value={2}>spacy分词</option>
+        </select>
+    </div>
       <div className="flex flex-col md:grid md:grid-cols-1 gap-1">
         <Card
           className="p-4 rounded-lg shadow-lg bg-gradient-to-r from-[#edf2f7] to-[#a1c9f1] border border-gray-200 border-[#2d3748] dark:border-gray-800">
@@ -24,13 +44,16 @@ export function GapWord() {
               aria-label="Input Text 1"
               className="border rounded-lg w-full h-32 p-2 bg-[#f7fafc] text-[#2d3748] font-sans border-[#2d3748] shadow-md"
               id="text1"
+              value={splitWordText}
+              onChange={(e)=>setsplitWordText(e.target.value)}
               placeholder="请输入文本" />
           </CardContent>
         </Card>      
         </div>
       <Button
         aria-label="Analyze Button"
-        className="w-full h-12 my-6 bg-gradient-to-r from-[#2d3748] to-[#4a5568] text-[#f3f4f6] rounded-lg shadow-md border-2 border-[#4a5568] hover:from-[#2d3748] hover:to-[#4a5568] active:scale-95">
+        className="w-full h-12 my-6 bg-gradient-to-r from-[#2d3748] to-[#4a5568] text-[#f3f4f6] rounded-lg shadow-md border-2 border-[#4a5568] hover:from-[#2d3748] hover:to-[#4a5568] active:scale-95"
+        onClick={splitWordTexting}>
         <MicroscopeIcon className="w-4 h-4 mr-2 inline-block" />
         立即分词
       </Button>
@@ -43,6 +66,7 @@ export function GapWord() {
         </CardHeader>
         <CardContent>
           <p aria-label="Analysis Result" className="text-lg">
+          {Array.isArray(splitedWordText) ? splitedWordText.join(' ') : splitedWordText}
           </p>
         </CardContent>
       </Card>

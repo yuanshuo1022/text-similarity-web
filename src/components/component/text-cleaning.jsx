@@ -3,15 +3,37 @@
  * @see https://v0.dev/t/BqYXyOlM51V
  */
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import { CardHeader, CardContent, Card } from "@/components/ui/card"
 import {NavBar} from "./header"
+import {cleanText} from "@/app/api/api"
+import React, { useEffect, useState } from 'react';
+
+
 export function TextCleaning() {
+  const [cleanedText,setCleanedText]=useState('') //清洗后
+  const [clean_text,setCleanText]=useState('')  //清洗前
+  const [clean_mode,setCleanMode]=useState(1)
+  const cleanTexting = async () => {
+    try {
+      const result = await cleanText(clean_mode,clean_text);
+      setCleanedText(result.cleaned_text)
+    } catch (error) {
+      // 在这里处理请求失败的情况
+      console.error('文本清洗失败：', error);
+    }
+  };
   return (
     (<div
       key="1"
       className="flex flex-col min-h-screen p-4 md:p-8 bg-gradient-to-r from-[#f3f4f6] to-[#a1c9f1] text-[#2d3748] font-sans">
      <NavBar />
+     <div className="flex ">
+        <select onChange={(e) => setCleanMode(e.target.value)} className="mb-6 font-bold bg-gradient-to-r from-[#f3f4f6] to-[#a1c9f1] w-42 h-8" >
+          <option className="mb-4 "   value={1} >保留中文</option>
+          <option className="mb-4 "  value={2}>保留中英文</option>
+          <option className="mb-4 "  value={3}>保留中英数字</option>
+        </select>
+    </div>
       <div className="flex flex-col md:grid md:grid-cols-1 gap-1">
         <Card
           className="p-4 rounded-lg shadow-lg bg-gradient-to-r from-[#edf2f7] to-[#a1c9f1] border border-gray-200 border-[#2d3748] dark:border-gray-800">
@@ -23,14 +45,17 @@ export function TextCleaning() {
             <textarea
               aria-label="Input Text 1"
               className="border rounded-lg w-full h-32 p-2 bg-[#f7fafc] text-[#2d3748] font-sans border-[#2d3748] shadow-md"
-              id="text1"
+              id="clean_text"
+              value={clean_text}
+              onChange={(e) => setCleanText(e.target.value)}
               placeholder="请输入文本" />
           </CardContent>
         </Card>      
         </div>
       <Button
         aria-label="Analyze Button"
-        className="w-full h-12 my-6 bg-gradient-to-r from-[#2d3748] to-[#4a5568] text-[#f3f4f6] rounded-lg shadow-md border-2 border-[#4a5568] hover:from-[#2d3748] hover:to-[#4a5568] active:scale-95">
+        className="w-full h-12 my-6 bg-gradient-to-r from-[#2d3748] to-[#4a5568] text-[#f3f4f6] rounded-lg shadow-md border-2 border-[#4a5568] hover:from-[#2d3748] hover:to-[#4a5568] active:scale-95"
+        onClick={cleanTexting}>
         <MicroscopeIcon className="w-4 h-4 mr-2 inline-block" />
         立即清洗
       </Button>
@@ -43,6 +68,7 @@ export function TextCleaning() {
         </CardHeader>
         <CardContent>
           <p aria-label="Analysis Result" className="text-lg">
+            {cleanedText}
           </p>
         </CardContent>
       </Card>
