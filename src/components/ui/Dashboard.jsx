@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-
+//仪表盘
 const EchartsDashboard = ({ value }) => {
   const [chartData, setChartData] = useState(0); // 默认值，你可以根据需要设置
 
