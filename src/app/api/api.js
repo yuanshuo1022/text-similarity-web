@@ -2,7 +2,11 @@
 
 import axios from 'axios';
 
-const API_BASE_URL = 'http://127.0.0.1:5000/api';
+const API_BASE_URL = 'http://120.27.220.25:5001/api';
+// const API_BASE_URL = 'http://127.0.0.1:5000/api';
+const headers = {
+  'X-Web-Server-Auth': 'yuanshuo1022',
+};
 
 export const analyzeSimilarity = async (textVector,text1, text2) => {
     // console.log("rext1: "+text1+"\n text2: "+text2)
@@ -12,7 +16,7 @@ export const analyzeSimilarity = async (textVector,text1, text2) => {
       textVector:textVector,
       text1: text1,
       text2: text2
-    });
+    },{headers});
     console.log(response)
     return response.data;
   } catch (error) {
@@ -28,7 +32,7 @@ try {
   const response = await axios.post(`${API_BASE_URL}/clean-text`, {
     mode:mode,
     text: text,
-  });
+  },{headers});
   console.log(response)
   return response.data;
 } catch (error) {
@@ -44,7 +48,7 @@ try {
   const response = await axios.post(`${API_BASE_URL}/split-word`, {
     split_word_mode:split_word_mode,
     text: text,
-  });
+  },{headers});
   console.log(response)
   return response.data;
 } catch (error) {
@@ -60,7 +64,7 @@ export const simpleConvert = async (text) => {
 try {
   const response = await axios.post(`${API_BASE_URL}/simple-convert`, {
     text: text,
-   });
+   },{headers});
   console.log(response)
   return response.data;
   } catch (error) {
@@ -75,7 +79,7 @@ export const wordSimilarity = async (words) => {
 try {
   const response = await axios.post(`${API_BASE_URL}/word-similarity`, {
     words: words,
-   });
+   },{headers});
   console.log(response)
   return response.data;
   } catch (error) {
