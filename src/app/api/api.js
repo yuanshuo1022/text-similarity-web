@@ -73,17 +73,32 @@ try {
   }
 };
 
-export const wordSimilarity = async (words) => {
-  // console.log("rext1: "+text1+"\n text2: "+text2)
-  // return 99.443322;
-try {
-  const response = await axios.post(`${API_BASE_URL}/word-similarity`, {
-    words: words,
-   },{headers});
-  console.log(response)
-  return response.data;
-  } catch (error) {
-    console.error('请求失败：', error);
-    throw error; // 可以选择在这里抛出错误，也可以返回一个默认值或其他处理方式
-  }
+
+export const associateWords= async(singleWord, sum) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/word-similarity`, {
+      singleWord: singleWord,
+      sum:sum
+     },{header});
+    console.log(response)
+    return response.data;
+    } catch (error) {
+      console.error('请求失败：', error);
+      throw error; // 可以选择在这里抛出错误，也可以返回一个默认值或其他处理方式
+    }
+};
+
+export const inferWord= async(inferenceWord,inferencedWord,willInferenceWord) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/inferenceWord`, {
+      inferenceWord: inferenceWord,
+      inferencedWord:inferencedWord,
+      willInferenceWord,willInferenceWord
+     },{header});
+    console.log(response)
+    return response.data;
+    } catch (error) {
+      console.error('请求失败：', error);
+      throw error; // 可以选择在这里抛出错误，也可以返回一个默认值或其他处理方式
+    }
 };

@@ -33,14 +33,11 @@ export function NavBar() {
             <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/">
                 首页
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="#">
-                词语相似
-              </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="#">
-               类比推理
+              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/word-reason">
+                词语推理
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/statis">
-                模型分析
+                可视化
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/cleaning">
                 清洗文本
@@ -54,6 +51,9 @@ export function NavBar() {
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
                 兑换
               </Link>
+              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
+                声明
+              </Link>
             </div>
           </SheetContent>
         </Sheet>
@@ -66,27 +66,27 @@ export function NavBar() {
           <Link className="text-2xl font-bold text-[#2d3748]" href="/">
             首页
           </Link>
-          <Link className="text-2xl font-bold text-[#2d3748]" href="#">
-            词语相似
-          </Link>
-          <Link className="text-2xl font-bold text-[#2d3748]" href="#">
-            类比推理
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/word-reason">
+            词语推理
           </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="/statis">
-            模型分析
+            可视化
           </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="/cleaning">
             清洗文本
           </Link>
-          <Link className="text-2xl font-bold text-[#2d3748]" href="/gapword">
-            分词
-          </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="/simple">
             繁简转换
+          </Link>
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/gapword">
+            分词
           </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="/swap">
             兑换
           </Link>
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/swap">
+                声明
+            </Link>
           <Button
             className="text-2xl font-bold text-[#f3f4f6] bg-[#2d3748] hover:bg-[#4a5568]">
             连接钱包
@@ -144,13 +144,13 @@ function MenuIcon(props) {
     //   <svg xmlns="http://www.w3.org/2000/svg" width="140" height="60" viewBox="0 0 200 100">
 
     //   {/* <!-- 圆形 --> */}
-    //   <circle cx="100" cy="50" r="30" stroke="black" stroke-width="2" fill="transparent"/>
+    //   <circle cx="100" cy="50" r="30" stroke="black" strokeWidth="2" fill="transparent"/>
     
     //   {/* <!-- 镜像的“词”字 --> */}
-    //   <text x="100" y="50" font-family="Arial" font-size="20" text-anchor="middle" dominant-baseline="central" transform="scale(-1,1) translate(-200, 0)" >词</text>
+    //   <text x="100" y="50" fontFamily="Arial" fontSize="20" textAnchor="middle" dominantBaseline="central" transform="scale(-1,1) translate(-200, 0)" >词</text>
     
     //   {/* <!-- 缩小的箭头 --> */}
-    //   <line x1="90" y1="35" x2="110" y2="35" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+    //   <line x1="90" y1="35" x2="110" y2="35" stroke="black" strokeWidth="1" markerEnd="url(#arrowhead)"/>
     
     //   {/* <!-- 定义箭头末端样式 --> */}
     //   <defs>
@@ -170,13 +170,13 @@ function MenuIcon(props) {
         <rect x="0" y="0" width="200" height="100" fill="url(#gradient)" />
   
         {/* 圆形 */}
-        <circle cx="100" cy="50" r="30" stroke="black" stroke-width="2" fill="transparent"/>
+        <circle cx="100" cy="50" r="30" stroke="black" strokeWidth="2" fill="transparent"/>
   
         {/* 镜像的“词”字 */}
-        <text x="100" y="50" font-family="Arial" font-size="20" text-anchor="middle" dominant-baseline="central" transform="scale(-1,1) translate(-200, 0)">词</text>
+        <text x="100" y="50" fontFamily="Arial" fontSize="20" textAnchor="middle" dominantBaseline="central" transform="scale(-1,1) translate(-200, 0)">词</text>
   
         {/* 缩小的箭头 */}
-        <line x1="90" y1="35" x2="110" y2="35" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+        <line x1="90" y1="35" x2="110" y2="35" stroke="black" strokeWidth="1" markerEnd="url(#arrowhead)"/>
   
         {/* 定义箭头末端样式 */}
         <defs>
