@@ -84,9 +84,9 @@ export function NavBar() {
           <Link className="text-2xl font-bold text-[#2d3748]" href="/swap">
             兑换
           </Link>
-          <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/swap">
                 声明
-              </Link>
+            </Link>
           <Button
             className="text-2xl font-bold text-[#f3f4f6] bg-[#2d3748] hover:bg-[#4a5568]">
             连接钱包
