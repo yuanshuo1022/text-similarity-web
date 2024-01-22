@@ -144,13 +144,13 @@ function MenuIcon(props) {
     //   <svg xmlns="http://www.w3.org/2000/svg" width="140" height="60" viewBox="0 0 200 100">
 
     //   {/* <!-- 圆形 --> */}
-    //   <circle cx="100" cy="50" r="30" stroke="black" stroke-width="2" fill="transparent"/>
+    //   <circle cx="100" cy="50" r="30" stroke="black" strokeWidth="2" fill="transparent"/>
     
     //   {/* <!-- 镜像的“词”字 --> */}
-    //   <text x="100" y="50" font-family="Arial" font-size="20" text-anchor="middle" dominant-baseline="central" transform="scale(-1,1) translate(-200, 0)" >词</text>
+    //   <text x="100" y="50" fontFamily="Arial" fontSize="20" textAnchor="middle" dominantBaseline="central" transform="scale(-1,1) translate(-200, 0)" >词</text>
     
     //   {/* <!-- 缩小的箭头 --> */}
-    //   <line x1="90" y1="35" x2="110" y2="35" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+    //   <line x1="90" y1="35" x2="110" y2="35" stroke="black" strokeWidth="1" markerEnd="url(#arrowhead)"/>
     
     //   {/* <!-- 定义箭头末端样式 --> */}
     //   <defs>
@@ -170,13 +170,13 @@ function MenuIcon(props) {
         <rect x="0" y="0" width="200" height="100" fill="url(#gradient)" />
   
         {/* 圆形 */}
-        <circle cx="100" cy="50" r="30" stroke="black" stroke-width="2" fill="transparent"/>
+        <circle cx="100" cy="50" r="30" stroke="black" strokeWidth="2" fill="transparent"/>
   
         {/* 镜像的“词”字 */}
-        <text x="100" y="50" font-family="Arial" font-size="20" text-anchor="middle" dominant-baseline="central" transform="scale(-1,1) translate(-200, 0)">词</text>
+        <text x="100" y="50" fontFamily="Arial" fontSize="20" textAnchor="middle" dominantBaseline="central" transform="scale(-1,1) translate(-200, 0)">词</text>
   
         {/* 缩小的箭头 */}
-        <line x1="90" y1="35" x2="110" y2="35" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+        <line x1="90" y1="35" x2="110" y2="35" stroke="black" strokeWidth="1" markerEnd="url(#arrowhead)"/>
   
         {/* 定义箭头末端样式 */}
         <defs>
