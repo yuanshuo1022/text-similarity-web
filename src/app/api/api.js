@@ -4,6 +4,11 @@ import axios from 'axios';
 
 const API_BASE_URL = 'http://127.0.0.1:5000/api';
 
+const header= {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
+}
+
 export const analyzeSimilarity = async (textVector,text1, text2) => {
     // console.log("rext1: "+text1+"\n text2: "+text2)
     // return 99.443322;
@@ -12,7 +17,7 @@ export const analyzeSimilarity = async (textVector,text1, text2) => {
       textVector:textVector,
       text1: text1,
       text2: text2
-    });
+    },{header});
     console.log(response)
     return response.data;
   } catch (error) {
@@ -28,7 +33,7 @@ try {
   const response = await axios.post(`${API_BASE_URL}/clean-text`, {
     mode:mode,
     text: text,
-  });
+  },{header});
   console.log(response)
   return response.data;
 } catch (error) {
@@ -44,7 +49,7 @@ try {
   const response = await axios.post(`${API_BASE_URL}/split-word`, {
     split_word_mode:split_word_mode,
     text: text,
-  });
+  },{header});
   console.log(response)
   return response.data;
 } catch (error) {
@@ -60,7 +65,7 @@ export const simpleConvert = async (text) => {
 try {
   const response = await axios.post(`${API_BASE_URL}/simple-convert`, {
     text: text,
-   });
+   },{header});
   console.log(response)
   return response.data;
   } catch (error) {
@@ -69,17 +74,32 @@ try {
   }
 };
 
-export const wordSimilarity = async (words) => {
-  // console.log("rext1: "+text1+"\n text2: "+text2)
-  // return 99.443322;
-try {
-  const response = await axios.post(`${API_BASE_URL}/word-similarity`, {
-    words: words,
-   });
-  console.log(response)
-  return response.data;
-  } catch (error) {
-    console.error('请求失败：', error);
-    throw error; // 可以选择在这里抛出错误，也可以返回一个默认值或其他处理方式
-  }
+
+export const associateWords= async(singleWord, sum) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/word-similarity`, {
+      singleWord: singleWord,
+      sum:sum
+     },{header});
+    console.log(response)
+    return response.data;
+    } catch (error) {
+      console.error('请求失败：', error);
+      throw error; // 可以选择在这里抛出错误，也可以返回一个默认值或其他处理方式
+    }
+};
+
+export const inferWord= async(inferenceWord,inferencedWord,willInferenceWord) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/inferenceWord`, {
+      inferenceWord: inferenceWord,
+      inferencedWord:inferencedWord,
+      willInferenceWord,willInferenceWord
+     },{header});
+    console.log(response)
+    return response.data;
+    } catch (error) {
+      console.error('请求失败：', error);
+      throw error; // 可以选择在这里抛出错误，也可以返回一个默认值或其他处理方式
+    }
 };

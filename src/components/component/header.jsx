@@ -33,8 +33,8 @@ export function NavBar() {
             <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/">
                 首页
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="#">
-                词语相似
+              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/word-reason">
+                词语推理
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="#">
                类比推理
@@ -66,8 +66,8 @@ export function NavBar() {
           <Link className="text-2xl font-bold text-[#2d3748]" href="/">
             首页
           </Link>
-          <Link className="text-2xl font-bold text-[#2d3748]" href="#">
-            词语相似
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/word-reason">
+            词语推理
           </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="#">
             类比推理
