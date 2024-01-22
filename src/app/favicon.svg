@@ -1,0 +1,21 @@
+  <svg xmlns="http://www.w3.org/2000/svg" width="120" height="50" viewBox="0 0 200 100">
+  
+        {/* 镜像的“词”字 */}
+        <text x="100" y="50" fontFamily="Arial" fontSize="20" textAnchor="middle" dominantBaseline="central" transform="scale(-1,1) translate(-200, 0)">词</text>
+  
+        {/* 缩小的箭头 */}
+        <line x1="90" y1="35" x2="110" y2="35" stroke="black" strokeWidth="1" markerEnd="url(#arrowhead)"/>
+  
+        {/* 定义箭头末端样式 */}
+        <defs>
+          <marker id="arrowhead" markerWidth="5" markerHeight="3.5" refX="0" refY="1.75" orient="auto">
+            <polygon points="0 0, 6 1.75, 0 3.5" fill="black"/>
+          </marker>
+  
+          {/* 定义线性渐变 */}
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style={{stopColor: "#a1c9f1", stopOpacity: 1}} />
+            <stop offset="100%" style={{stopColor: "#004CBF", stopOpacity: 1}} />
+          </linearGradient>
+        </defs>
+      </svg>

@@ -7,7 +7,7 @@ import { CardHeader, CardContent, Card } from "@/components/ui/card"
 import {NavBar} from "./header"
 import {cleanText} from "@/app/api/api"
 import React, { useEffect, useState } from 'react';
-
+import {Footer} from "@/components/component/footer"
 
 export function TextCleaning() {
   const [cleanedText,setCleanedText]=useState('') //清洗后
@@ -72,9 +72,10 @@ export function TextCleaning() {
           </p>
         </CardContent>
       </Card>
-  
-    </div>)
+    </div>
+    )
   );
+
 }
 
 

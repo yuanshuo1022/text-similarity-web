@@ -36,11 +36,8 @@ export function NavBar() {
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/word-reason">
                 词语推理
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="#">
-               类比推理
-              </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/statis">
-                模型分析
+                可视化
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/cleaning">
                 清洗文本
@@ -53,6 +50,9 @@ export function NavBar() {
               </Link>
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
                 兑换
+              </Link>
+              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
+                声明
               </Link>
             </div>
           </SheetContent>
@@ -69,24 +69,24 @@ export function NavBar() {
           <Link className="text-2xl font-bold text-[#2d3748]" href="/word-reason">
             词语推理
           </Link>
-          <Link className="text-2xl font-bold text-[#2d3748]" href="#">
-            类比推理
-          </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="/statis">
-            模型分析
+            可视化
           </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="/cleaning">
             清洗文本
           </Link>
-          <Link className="text-2xl font-bold text-[#2d3748]" href="/gapword">
-            分词
-          </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="/simple">
             繁简转换
+          </Link>
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/gapword">
+            分词
           </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="/swap">
             兑换
           </Link>
+          <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
+                声明
+              </Link>
           <Button
             className="text-2xl font-bold text-[#f3f4f6] bg-[#2d3748] hover:bg-[#4a5568]">
             连接钱包
