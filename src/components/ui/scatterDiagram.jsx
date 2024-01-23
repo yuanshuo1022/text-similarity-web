@@ -1,50 +1,60 @@
-import React, { useEffect, useState } from 'react';
-import ReactECharts from 'echarts-for-react';
-//散点图
-const Scatter3DChart = () => {
-  const [wordVectorData, setWordVectorData] = useState([]);
+import React, { useEffect } from 'react';
 
+const EchartsScatter3D = ({ data }) => {
   useEffect(() => {
-    // 使用 AJAX 获取后端数据
-    fetch('/word_vector_data')
-      .then(response => response.json())
-      .then(data => {
-        setWordVectorData(data);
-      })
-      .catch(error => console.error('Failed to fetch data:', error));
-  }, []);
+    // if (typeof window !== 'undefined') {
+      const chartDom = document.getElementById('main');
+      if (chartDom) {
+        import('echarts').then((echarts) => {
+          // Dynamically import echarts-gl after echarts is loaded
+          import('echarts-gl').then(() => {
+            const myChart = echarts.init(chartDom);
 
-  const options = {
-    tooltip: {},
-    visualMap: {
-      max: 10,
-      dimension: 2,
-      inRange: {
-        color: ['#d94e5d', '#eac736', '#50a3ba'].reverse(),
-      },
-    },
-    xAxis3D: {},
-    yAxis3D: {},
-    zAxis3D: {},
-    dataset: {
-      dimensions: ['word', 'x', 'y', 'z'],
-      source: wordVectorData,
-    },
-    series: [
-      {
-        type: 'scatter3D',
-        symbolSize: 10,
-        encode: {
-          x: 'x',
-          y: 'y',
-          z: 'z',
-          tooltip: ['word', 'x', 'y', 'z'],
-        },
-      },
-    ],
-  };
+            const symbolSize = 2.5;
+            const option = {
+              grid3D: {},
+              xAxis3D: {
+                type: 'category',
+              },
+              yAxis3D: {},
+              zAxis3D: {},
+              dataset: {
+                dimensions: [
+                  'Income',
+                  'Life Expectancy',
+                  'Population',
+                  'Country',
+                  { name: 'Year', type: 'ordinal' },
+                ],
+                source: data,
+              },
+              series: [
+                {
+                  type: 'scatter3D',
+                  symbolSize: symbolSize,
+                  encode: {
+                    x: 'Country',
+                    y: 'Life Expectancy',
+                    z: 'Income',
+                    tooltip: [0, 1, 2, 3, 4],
+                  },
+                },
+              ],
+            };
 
-  return <ReactECharts option={options} style={{ width: '800px', height: '600px' }} />;
+             // 设置选项
+        option && myChart.setOption(option);
+
+            return () => {
+              myChart.dispose();
+            };
+          });
+        });
+      }
+    }
+  , [data]);
+
+  return <div id="echarts-scatter-3d-container" style={{ width: '100%', height: '600px' }}></div>;
 };
 
-export default Scatter3DChart;
+export default EchartsScatter3D;
