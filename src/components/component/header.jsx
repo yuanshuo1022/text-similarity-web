@@ -23,7 +23,7 @@ export function NavBar() {
 
           <SheetContent side="left" className="bg-gradient-to-b from-[#edf2f7] to-[#a1c9f1] dark:from-[#edf2f7] dark:to-[#a1c9f1]">
           {/* <Button className="text-2xl font-bold text-[#f3f4f6] bg-[#2d3748] hover:bg-[#4a5568]  mt-4">
-            连接钱包
+            连接metamask
           </Button> */}
             {/* <Link href="#">
               <HomeIcon className="h-6 w-6" />

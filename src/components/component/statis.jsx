@@ -9,92 +9,24 @@ import EchartsDashboard from "@/components/ui/scatterDiagram"
 import {NavBar} from "./header"
 import React, { useState } from 'react';
 import axios from 'axios';
+import EchartsScatter3D  from "@/components/ui/scatterDiagram"
 export function WordVectorAnalysis() {
-  const [text1, setText1] = useState('');
-  const [text2, setText2] = useState('');
-  const [similarityResult, setSimilarityResult] = useState(0);
-
-  const handleAnalyze = () => {
-    console.log("text1:"+text1)
-    console.log("text2: "+text2)
-    setSimilarityResult(78)
-    // 发送POST请求到后端
-//     axios.post('http://localhost:5000/api/analyze-similarity', {
-//       text1: text1,
-//       text2: text2
-//     })
-//     .then(response => {
-//       const result = response.data.result;
-//       setSimilarityResult(result);
-//     })
-//     .catch(error => {
-//       console.error('请求失败：', error);
-//     });
-
-  };
 
   return (
     (<div
       key="1"
       className="flex flex-col min-h-screen p-4 md:p-8 bg-gradient-to-r from-[#f3f4f6] to-[#a1c9f1] text-[#2d3748] font-sans">
      <NavBar />
-      <div className="flex flex-col md:grid md:grid-cols-2 gap-4 flex-grow">
-        <Card
-          className="p-4 rounded-lg shadow-lg bg-gradient-to-r from-[#edf2f7] to-[#a1c9f1] border border-gray-200 border-[#2d3748] dark:border-gray-800">
-          <CardHeader className="mb-4">
-            <h2
-              className="text-2xl font-bold text-[#2d3748] border-b-2 border-[#2d3748] inline-block pb-1">文本1</h2>
-          </CardHeader>
-          <CardContent>
-            <textarea
-              aria-label="Input Text 1"
-              className="border rounded-lg w-full h-32 p-2 bg-[#f7fafc] text-[#2d3748] font-sans border-[#2d3748] shadow-md"
-              id="text1"
-              value={text1}
-              onChange={(e) => setText1(e.target.value)}
-              placeholder="请输入文本" />
-          </CardContent>
-        </Card>
-        <Card
-          className="p-4 rounded-lg shadow-lg bg-gradient-to-r from-[#edf2f7] to-[#a1c9f1] border border-gray-200 border-[#2d3748] dark:border-gray-800">
-          <CardHeader className="mb-4">
-            <h2
-              className="text-2xl font-bold text-[#2d3748] border-b-2 border-[#2d3748] inline-block pb-1">文本2</h2>
-          </CardHeader>
-          <CardContent>
-            <textarea
-              aria-label="Input Text 2"
-              className="border rounded-lg w-full h-32 p-2 bg-[#f7fafc] text-[#2d3748] font-sans border-[#2d3748] shadow-md"
-              id="text2"
-              value={text2}
-              onChange={(e) => setText2(e.target.value)}
-              placeholder="请输入文本" />
-          </CardContent>
-        </Card>
-      </div>
-      <Button
-        aria-label="Analyze Button"
-        onClick={handleAnalyze}
-        className="w-full h-12 my-6 bg-gradient-to-r from-[#2d3748] to-[#4a5568] text-[#f3f4f6] rounded-lg shadow-md border-2 border-[#4a5568] hover:from-[#2d3748] hover:to-[#4a5568] active:scale-95">
-        <MicroscopeIcon className="w-4 h-4 mr-2 inline-block" />
-        立即分析
-      </Button>
-      <Card
-        className="p-4 rounded-lg shadow-lg bg-gradient-to-r from-[#edf2f7] to-[#a1c9f1] border border-gray-200 border-[#2d3748] dark:border-gray-800">
-        <CardHeader className="mb-4">
-          <h2
-            className="text-2xl font-bold text-[#2d3748] border-b-2 border-[#2d3748] inline-block pb-1">分析结果</h2>
-        </CardHeader>
-        <CardContent>
-          <p aria-label="Analysis Result" className="text-lg">
-            文本相似度结果为：
-          </p>
-          <EchartsDashboard value={similarityResult}/>
-        </CardContent>
-      </Card>
+     <div className="flex flex-col md:grid md:grid-cols-1 gap-1">
+    <EchartsScatter3D/>
+       </div>
     </div>)
   );
-}
+
+  };
+
+ 
+
 
 
 
