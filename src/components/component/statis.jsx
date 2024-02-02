@@ -5,7 +5,7 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { CardHeader, CardContent, Card } from "@/components/ui/card"
-import EchartsDashboard from "@/components/ui/Dashboard"
+import EchartsDashboard from "@/components/ui/scatterDiagram"
 import {NavBar} from "./header"
 import React, { useState } from 'react';
 import axios from 'axios';

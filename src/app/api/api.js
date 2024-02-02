@@ -2,8 +2,8 @@
 
 import axios from 'axios';
 
-const API_BASE_URL = 'http://120.27.220.25:5001/api';
-// const API_BASE_URL = 'http://127.0.0.1:5000/api';
+// const API_BASE_URL = 'http://120.27.220.25:5001/api';
+const API_BASE_URL = 'http://127.0.0.1:5000/api';
 const headers = {
   'X-Web-Server-Auth': 'yuanshuo1022',
 };
@@ -79,7 +79,7 @@ export const associateWords= async(singleWord, sum) => {
     const response = await axios.post(`${API_BASE_URL}/word-similarity`, {
       singleWord: singleWord,
       sum:sum
-     },{header});
+     },{headers});
     console.log(response)
     return response.data;
     } catch (error) {
@@ -94,7 +94,7 @@ export const inferWord= async(inferenceWord,inferencedWord,willInferenceWord) =>
       inferenceWord: inferenceWord,
       inferencedWord:inferencedWord,
       willInferenceWord,willInferenceWord
-     },{header});
+     },{headers});
     console.log(response)
     return response.data;
     } catch (error) {

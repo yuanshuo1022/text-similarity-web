@@ -22,9 +22,9 @@ export function NavBar() {
         </div>
 
           <SheetContent side="left" className="bg-gradient-to-b from-[#edf2f7] to-[#a1c9f1] dark:from-[#edf2f7] dark:to-[#a1c9f1]">
-          <Button className="text-2xl font-bold text-[#f3f4f6] bg-[#2d3748] hover:bg-[#4a5568]  mt-4">
+          {/* <Button className="text-2xl font-bold text-[#f3f4f6] bg-[#2d3748] hover:bg-[#4a5568]  mt-4">
             连接钱包
-          </Button>
+          </Button> */}
             {/* <Link href="#">
               <HomeIcon className="h-6 w-6" />
               <span className="sr-only">首页</span>
@@ -48,10 +48,10 @@ export function NavBar() {
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/simple">
                 繁简转换
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
+              {/* <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
                 兑换
-              </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/swap">
+              </Link> */}
+              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/statement">
                 声明
               </Link>
             </div>
@@ -69,7 +69,7 @@ export function NavBar() {
           <Link className="text-2xl font-bold text-[#2d3748]" href="/word-reason">
             词语推理
           </Link>
-          <Link className="text-2xl font-bold text-[#2d3748]" href="/statis">
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/scatterDiagram">
             可视化
           </Link>
           <Link className="text-2xl font-bold text-[#2d3748]" href="/cleaning">
@@ -81,16 +81,16 @@ export function NavBar() {
           <Link className="text-2xl font-bold text-[#2d3748]" href="/gapword">
             分词
           </Link>
-          <Link className="text-2xl font-bold text-[#2d3748]" href="/swap">
+          {/* <Link className="text-2xl font-bold text-[#2d3748]" href="/swap">
             兑换
-          </Link>
-          <Link className="text-2xl font-bold text-[#2d3748]" href="/swap">
+          </Link> */}
+          <Link className="text-2xl font-bold text-[#2d3748]" href="/statement">
                 声明
             </Link>
-          <Button
+          {/* <Button
             className="text-2xl font-bold text-[#f3f4f6] bg-[#2d3748] hover:bg-[#4a5568]">
             连接钱包
-          </Button>
+          </Button> */}
         </nav>
       </header>)
     )

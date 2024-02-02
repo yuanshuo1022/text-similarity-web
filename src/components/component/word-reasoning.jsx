@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { CardHeader, CardContent, Card } from "@/components/ui/card";
 import { NavBar } from "./header";
-import { inferWord } from "@/app/api/api";
+import { inferWord,associateWords} from "@/app/api/api";
 
 
 export function WordAssociation() {
