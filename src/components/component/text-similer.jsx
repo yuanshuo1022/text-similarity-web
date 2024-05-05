@@ -19,12 +19,23 @@ export function TextSimiler() {
     try {
       console.log("Textvector",textVector)
       const result = await analyzeSimilarity(textVector,text1, text2);
-      setCosine_sim(Number(result.cosine_sim*100).toFixed(4))
-      setCorrelation_sim(Number(result.correlation_sim*100).toFixed(4))
-      const roundedResult = Number((result.cosine_sim*100+result.correlation_sim*100)/2).toFixed(2);
-      setSimilarityResult(roundedResult);
+      console.log()
+      if(Number(result.cosine_sim)===0.0 || isNaN(result.correlation_sim)){
+        console.log("------进入")
+        alert("无法使用此算法分析文本相似度")
+        setCosine_sim(0)
+        setCorrelation_sim(0)
+        const roundedResult = Number(0);
+        setSimilarityResult(roundedResult);
+      }else{
+        setCosine_sim(Number(result.cosine_sim*100).toFixed(4))
+        setCorrelation_sim(Number(result.correlation_sim*100).toFixed(4))
+        const roundedResult = Number((result.cosine_sim*100+result.correlation_sim*100)/2).toFixed(2);
+        setSimilarityResult(roundedResult);
+      }
     } catch (error) {
       // 在这里处理请求失败的情况
+      alert("分析失败")
       console.error('分析失败：', error);
     }
   };

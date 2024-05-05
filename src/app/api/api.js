@@ -9,8 +9,7 @@ const headers = {
 };
 
 export const analyzeSimilarity = async (textVector,text1, text2) => {
-    // console.log("rext1: "+text1+"\n text2: "+text2)
-    // return 99.443322;
+    
   try {
     const response = await axios.post(`${API_BASE_URL}/analyze-similarity`, {
       textVector:textVector,
@@ -21,7 +20,7 @@ export const analyzeSimilarity = async (textVector,text1, text2) => {
     return response.data;
   } catch (error) {
     console.error('请求失败：', error);
-    throw error; // 可以选择在这里抛出错误，也可以返回一个默认值或其他处理方式
+    throw error; // 选择在这里抛出错误
   }
 };
 
@@ -75,16 +74,19 @@ try {
 
 
 export const associateWords= async(singleWord, sum) => {
-  try {
-    const response = await axios.post(`${API_BASE_URL}/word-similarity`, {
+  try { 
+    //post请求调用接口
+    const response = await axios.post(`${API_BASE_URL}/word-similarity`, { 
+      //传递json数据和校验请求头
       singleWord: singleWord,
       sum:sum
-     },{headers});
+     },{headers});    
     console.log(response)
-    return response.data;
+    return response.data;  
     } catch (error) {
+      //抛出错误异常
       console.error('请求失败：', error);
-      throw error; // 可以选择在这里抛出错误，也可以返回一个默认值或其他处理方式
+      throw error; 
     }
 };
 

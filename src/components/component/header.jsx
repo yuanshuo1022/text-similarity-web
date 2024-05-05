@@ -36,9 +36,9 @@ export function NavBar() {
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/word-reason">
                 词语推理
               </Link>
-              <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/statis">
+              {/* <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/statis">
                 可视化
-              </Link>
+              </Link> */}
               <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/cleaning">
                 清洗文本
               </Link>
@@ -69,9 +69,9 @@ export function NavBar() {
           <Link className="text-2xl font-bold text-[#2d3748]" href="/word-reason">
             词语推理
           </Link>
-          <Link className="text-2xl font-bold text-[#2d3748]" href="/scatterDiagram">
+          {/* <Link className="text-2xl font-bold text-[#2d3748]" href="/scatterDiagram">
             可视化
-          </Link>
+          </Link> */}
           <Link className="text-2xl font-bold text-[#2d3748]" href="/cleaning">
             清洗文本
           </Link>
